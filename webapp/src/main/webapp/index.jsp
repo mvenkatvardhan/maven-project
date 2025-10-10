@@ -39,3 +39,40 @@
     const drops = Array(columns).fill(1);
 
     // Convert words to binary strings
+    const words = ["matrix", "cyber", "code", "linux", "ubuntu", "kernel", "shell", "script", "binary", "system"];
+    const binaryStream = words
+        .map(word => word.split('')
+            .map(char => char.charCodeAt(0).toString(2).padStart(8, '0'))
+            .join(''))
+        .join('');
+    const matrixChars = binaryStream.split('');
+    const columnCharIndex = Array(columns).fill(0);
+
+    function drawMatrix() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = "#0F0";
+        ctx.font = fontSize + "px monospace";
+
+        for (let i = 0; i < drops.length; i++) {
+            const text = matrixChars[columnCharIndex[i] % matrixChars.length];
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+            columnCharIndex[i]++;
+
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+
+            drops[i]++;
+        }
+    }
+
+    setInterval(drawMatrix, 50);
+</script>
+
+</body>
+</html>
+
+
+    
