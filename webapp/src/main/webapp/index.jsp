@@ -331,7 +331,7 @@
     <button class="toggle-button" onclick="toggleDarkMode()"></button>
 
     <section id="hero" class="section hero">
-        <h1>m venkat vardhan</h1>
+        <h1>M vardhan devops</h1>
         <p>DevOps & Java Full Stack Developer</p>
         <p class="tagline">I like minimal designs so, this is minimal without any distractions</p>
     </section>
